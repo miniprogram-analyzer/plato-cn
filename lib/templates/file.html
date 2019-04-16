@@ -28,7 +28,7 @@
     <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
     <ul class="nav navbar-nav">
       <li>
-        <a href="../../index.html">Report Home</a>
+        <a href="../../index.html">报告首页</a>
       </li>
     </ul>
   </div>
@@ -43,11 +43,11 @@
 <div class="container aggregate-stats">
   <div class="row">
     <div class="col-md-6">
-      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <h2 class="header">代码可维护性 <a href="https://avandeursen.com/2014/08/29/think-twice-before-using-the-maintainability-index/"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="取值范围0-100；分值越高表示代码可维护性越强；0-10表示低可维护性，10-20表示中等可维护性，20-100表示高可维护性" data-original-title="代码可维护性，点击问号有详细说明"  data-container="body"></i></a></h2>
       <p class="stat"><%= report.complexity.maintainability.toFixed(2) %></p>
     </div>
     <div class="col-md-6">
-      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <h2 class="header">代码行数 <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
       <p class="stat"><%= report.complexity.methodAggregate.sloc.physical %></p>
     </div>
   </div>
@@ -61,11 +61,11 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <h2 class="header">难度  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="难度表示程序编写或阅读的难易程度，分值越高表示越难编写或阅读" data-original-title="难度" data-container="body"></i></a></h2>
       <p class="stat"><%= report.complexity.methodAggregate.halstead.difficulty.toFixed(2) %></p>
     </div>
     <div class="col-md-6">
-      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <h2 class="header">预估错误  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="根据Halstead模型得出的潜在bug数，点击问号有详细说明" data-original-title="预估bug数" data-container="body"></i></a></h2>
       <p class="stat"><%= report.complexity.methodAggregate.halstead.bugs.toFixed(2) %></p>
     </div>
   </div>
@@ -73,15 +73,15 @@
 
 <div class="container charts">
   <div class="row">
-    <h2 class="header">Function weight</h2>
+    <h2 class="header">函数权重</h2>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <h3 class="chart-header">依据复杂度 <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="代码块中入口至出口间路径数，例：没有if语句，顺序执行，值为1；if语句一个条件，值为2。点击问号有详细说明" data-original-title="圈复杂度" data-container="body"></i></a></h3>
       <div id="fn-by-complexity" class="stat"></div>
     </div>
     <div class="col-md-6">
-      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <h3 class="chart-header">依据逻辑代码行数  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
       <div id="fn-by-sloc" class="stat"></div>
     </div>
   </div>

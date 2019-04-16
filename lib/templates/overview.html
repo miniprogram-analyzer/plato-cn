@@ -30,7 +30,7 @@
     <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
     <ul class="nav navbar-nav">
       <li class="active">
-        <a href="index.html">Report Home</a>
+        <a href="index.html">报告首页</a>
       </li>
     </ul>
   </div>
@@ -38,21 +38,21 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1><%= options.title || 'JavaScript Source Analysis' %></h1>
+    <h1><%= options.title || 'JavaScript 源码分析' %></h1>
   </div>
 </div>
 
 <div class="container aggregate-stats">
   <div class="row">
-    <h1 class="col-md-12">Summary</h1>
+    <h1 class="col-md-12">总结</h1>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h2 class="header">Total/Average Lines <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC" data-container="body"></i></h2>
+      <h2 class="header">总/平均代码行数 <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC" data-container="body"></i></h2>
       <p class="stat"><%= report.summary.total.sloc %> / <%= report.summary.average.sloc %></p>
     </div>
     <div class="col-md-6">
-      <h2 class="header">Average Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index" data-container="body"></i></a></h2>
+      <h2 class="header">平均代码可维护性 <a href="https://avandeursen.com/2014/08/29/think-twice-before-using-the-maintainability-index/"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="取值范围0-100；分值越高表示代码可维护性越强；0-10表示低可维护性，10-20表示中等可维护性，20-100表示高可维护性。点击问号有详细说明"" data-original-title="代码可维护性 data-container="body"></i></a></h2>
       <p class="stat"><%= report.summary.average.maintainability %></p>
     </div>
   </div>
@@ -71,20 +71,20 @@
 
 <div class="container overview">
   <div class="row">
-    <h2 class="col-md-12">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index" data-container="body"></i></a></h2>
+    <h2 class="col-md-12"> <a href="https://avandeursen.com/2014/08/29/think-twice-before-using-the-maintainability-index/"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="取值范围0-100；分值越高表示代码可维护性越强；0-10表示低可维护性，10-20表示中等可维护性，20-100表示高可维护性" data-original-title="代码可维护性，点击问号有详细说明" data-container="body"></i></a></h2>
     <div class="col-md-12"><div id='chart_maintainability' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="col-md-12">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC" data-container="body"></i></h2>
+    <h2 class="col-md-12">代码行数 <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC" data-container="body"></i></h2>
     <div class="col-md-12"><div id='chart_sloc' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="col-md-12">Estimated errors in implementation <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+    <h2 class="col-md-12">估计执行错误 <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="根据Halstead模型得出的潜在bug数，点击问号有详细说明" data-original-title="预估bug数" data-container="body"></i></a></h2>
     <div class="col-md-12"><div id='chart_bugs' class='chart js-chart'></div></div>
   </div>
   <% if (options.flags.jshint) { %>
   <div class="row">
-    <h2 class="col-md-12">Lint errors</h2>
+    <h2 class="col-md-12">不符合代码规范错误</h2>
     <div class="col-md-12"><div id='chart_lint' class='chart js-chart'></div></div>
   </div>
   <% } %>
@@ -92,17 +92,17 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="col-md-12">Files</h1>
+    <h1 class="col-md-12">所有文件</h1>
   </div>
 
   <div class="row">
     <div class="span12 group-header">
       <div class="btn-group">
-        <button type="button" id="button-complexity" class="btn btn-default complexity">complexity</button>
-        <button type="button" id="button-sloc" class="btn btn-default sloc">sloc</button>
-        <button type="button" id="button-bugs" class="btn btn-default bugs">est errors</button>
+        <button type="button" id="button-complexity" class="btn btn-default complexity">代码复杂度</button>
+        <button type="button" id="button-sloc" class="btn btn-default sloc">逻辑代码行数</button>
+        <button type="button" id="button-bugs" class="btn btn-default bugs">估计存在错误</button>
         <% if (options.flags.jshint) { %>
-        <button type="button" id="button-lint" class="btn btn-default lint">lint errors</button>
+        <button type="button" id="button-lint" class="btn btn-default lint">不符合代码规范错误</button>
         <% } %>
       </div>
     </div>

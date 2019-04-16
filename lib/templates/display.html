@@ -25,12 +25,12 @@
 <body>
 
 <div class="container">
-    <h1><%= options.title || 'JavaScript Source Analysis' %></h1>
+    <h1><%= options.title || 'JavaScript 源码分析' %></h1>
     <div class="row">
         <div class="col-md-6">
             <div class="reportBlock lineCount">
                 <div class="reportContent">
-                    <small class="chart-label">Total / Average Lines</small>
+                    <small class="chart-label">总/平均代码行数</small>
                     <h1><%= report.summary.total.sloc %> / <%= report.summary.average.sloc %></h1>
                 </div>
                 <div id="chart_historical_sloc" class="chart js-chart"></div>
@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="reportBlock maintainability">
                 <div class="reportContent">
-                    <small class="chart-label">Average Maintainability</small>
+                    <small class="chart-label">平均代码可维护性</small>
                     <h1><%= report.summary.average.maintainability %></h1>
                 </div>
                 <div id="chart_historical_maint" class="chart js-chart"></div>
@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="reportBlock maintainabilityList">
-                <h2 class="reportTitle">Worst Maintainability Scores</h2>
+                <h2 class="reportTitle">最差代码可维护性得分</h2>
                 <ul class="list-unstyled">
 <% _.each(_.take(_.sortBy(report.reports, function (report) { return report.complexity.maintainability; }), 5), function(report, i) { %>
                     <li>
@@ -63,7 +63,7 @@
         </div>
         <div class="col-md-4">
             <div class="reportBlock locList">
-                <h2 class="reportTitle">Largest Files</h2>
+                <h2 class="reportTitle">最大文件</h2>
                 <ul class="list-unstyled">
 <% _.each(_.take(_.sortBy(report.reports, function (report) { return -1 * report.complexity.methodAggregate.sloc.physical }), 5), function(report, i) { %>
                     <li>
@@ -77,11 +77,11 @@
         <% if (report.summary.total.jshint) { %>
         <div class="col-md-4">
             <div class="reportBlock lintList">
-                <h2 class="reportTitle">Lint Warnings</h2>
+                <h2 class="reportTitle">不符合代码规范警告</h2>
                 <ul class="list-unstyled">
 <% _.each(_.take(_.sortBy(report.reports, function (report) { return -1 * report.jshint.messages }), 5), function(report, i) { %>
                     <li>
-                        <strong><%= report.jshint.messages %> lint errors</strong>
+                        <strong><%= report.jshint.messages %>lint 错误</strong>
                         <small><%= report.info.fileShort %></small>
                    </li>
 <% }); %>
