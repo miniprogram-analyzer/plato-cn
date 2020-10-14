@@ -1,3 +1,15 @@
+# plato-cn
+
+## Intro
+
+模板文件汉化 [/lib/templates](./lib/templates)
+
+原​ R​EADME
+
+:arrow_down::arrow_down::arrow_down:
+
+---
+
 # plato
 
 ## Needs active maintainer
